@@ -1,3 +1,5 @@
-Signal v1.0.1: visible version badge only.
-Upload index.html, app.js, and style.css together into your existing GitHub repository ROOT, where index.html already lives. Replace those three files. Do not upload them into vendor, icons, or a new folder. Commit and wait for the Pages deployment to finish, then reload. You should see v1.0.1 beside Signal.
-Do not clear browser storage. Your stored readings remain under the same key. This patch does not replace vendor files or change OCR. Badge reflects app.js release; upload all three files together to avoid mixed versions.
+Upload index.html, app.js and style.css together into your existing GitHub repository ROOT, replacing the files alongside vendor and icons. Do not create a nested folder. Commit, wait for Pages deployment, and reload. Version beside Signal should say v1.0.2.
+
+Copy Field Test code: while stopped, capture your location, tap Copy Field Test code, open Phone manually, paste on Keypad and tap Call. The button does not dial or launch Phone. If copying is unavailable, select the visible code and Copy manually.
+
+No need to clear browser storage. Readings, storage key and OCR are unchanged. This patch includes the v1.0.1 version badge, so you can install it directly over the original release.

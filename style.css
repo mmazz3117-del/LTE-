@@ -8,3 +8,5 @@
 
 /* Visible release badge: keep it beside the name on narrow screens. */
 .brand{flex-wrap:wrap}.versionbadge{display:inline-block;font-size:11px;line-height:1.4;letter-spacing:.02em;font-weight:600;padding:2px 6px;border:1px solid currentColor;border-radius:6px;white-space:nowrap;vertical-align:middle}header{gap:10px;flex-wrap:wrap}
+
+.fieldtestshortcut{padding:12px;margin:12px 0 16px;border:1px solid #d4ddd3;border-radius:10px}.fieldtestshortcut button{margin-bottom:10px}.fieldtestshortcut input{font-family:ui-monospace,monospace;font-size:18px;letter-spacing:.04em;user-select:text;-webkit-user-select:text}.fieldtestshortcut p:empty{display:none}

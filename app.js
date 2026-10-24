@@ -1,6 +1,6 @@
 'use strict';
 // User-visible release. Bump for each shipped application update.
-const APP_VERSION='1.0.1';
+const APP_VERSION='1.0.2';
 const versionBadge=document.getElementById('appVersion');
 if(versionBadge){versionBadge.textContent='v'+APP_VERSION;versionBadge.setAttribute('aria-label','App version '+APP_VERSION);}
 const $=id=>document.getElementById(id), fields=['lat','lon','captured','accuracy','network','band','rsrp','rsrq','snr','down','up','idle','loaded','loadedDown','loadedUp','jitter','testConnection','notes'];
@@ -54,3 +54,18 @@ function parseCSV(s){const rows=[];let row=[],cell='',quote=false;for(let i=0;i<
 $('import').onchange=async e=>{const file=e.target.files[0];if(!file)return;try{if(file.size>5000000)throw Error('Use a backup smaller than 5 MB.');const txt=await file.text();let incoming;if(file.name.toLowerCase().endsWith('.csv'))incoming=parseCSV(txt);else{const data=JSON.parse(txt);if(data.version!==1||!Array.isArray(data.records))throw Error('Unsupported JSON backup format.');incoming=data.records}if(incoming.length>10000)throw Error('Import is limited to 10,000 readings.');incoming=incoming.map((r,i)=>{try{return validate({...r,id:r.id?String(r.id).slice(0,100):crypto.randomUUID()})}catch(e){throw Error('Row '+(i+1)+': '+e.message)}});const ids=new Set(records.map(r=>r.id)),add=[];for(const r of incoming){if(!ids.has(r.id)){add.push(r);ids.add(r.id)}}if(!confirm('Import '+add.length+' new readings? Existing IDs are skipped. No existing readings will be replaced.'))return;records.push(...add);persist();render();fit();updateCombinedSummary();message('Imported '+add.length+' readings. Existing readings were kept.')}catch(err){message('Import failed: '+err.message+' No readings were changed.')}finally{e.target.value=''}};
 window.addEventListener('resize',draw);window.addEventListener('pageshow',stale);document.addEventListener('visibilitychange',()=>{if(!document.hidden)stale()});setInterval(stale,30000);
 render();fit();updateCombinedSummary();
+
+// Clipboard write only on an explicit tap; never read clipboard or initiate a call.
+const FIELD_TEST_CODE='*3001#12345#*';
+const fieldTestCopyButton=document.getElementById('copyFieldTest');
+if(fieldTestCopyButton)fieldTestCopyButton.addEventListener('click',async()=>{
+  const input=document.getElementById('fieldTestCode'),message=document.getElementById('fieldTestCopyStatus');
+  try {
+    if(!navigator.clipboard||!navigator.clipboard.writeText)throw new Error('Clipboard unavailable');
+    await navigator.clipboard.writeText(FIELD_TEST_CODE);
+    message.textContent='Copied. Open Phone → Keypad, paste, then tap Call.';
+  } catch {
+    input.focus();input.select();input.setSelectionRange(0,input.value.length);
+    message.textContent='Automatic copy is unavailable. Touch and hold the selected code, choose Copy, then open Phone → Keypad and paste.';
+  }
+});
