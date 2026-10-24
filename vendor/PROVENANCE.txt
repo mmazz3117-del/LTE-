@@ -1,0 +1,9 @@
+Self-hosted OCR assets (downloaded 2026-10-23)
+Tesseract.js 7.0.0 and tesseract.js-core 7.0.0, pinned official npm packages.
+https://registry.npmjs.org/tesseract.js/-/tesseract.js-7.0.0.tgz
+https://registry.npmjs.org/tesseract.js-core/-/tesseract.js-core-7.0.0.tgz
+Language: official tesseract-ocr/tessdata_fast English LSTM data.
+https://raw.githubusercontent.com/tesseract-ocr/tessdata_fast/main/eng.traineddata
+Apache-2.0 license copies included for all components.
+No screenshot or user-derived OCR text is included in this folder.
+d541cf14ba5f6259528ad0c155dd784e7f2939a0b59321a68108e2eabd3883dc  vendor/lang/eng.traineddata.gz
