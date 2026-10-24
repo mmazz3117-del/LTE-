@@ -1,0 +1,3 @@
+Signal v1.0.1: visible version badge only.
+Upload index.html, app.js, and style.css together into your existing GitHub repository ROOT, where index.html already lives. Replace those three files. Do not upload them into vendor, icons, or a new folder. Commit and wait for the Pages deployment to finish, then reload. You should see v1.0.1 beside Signal.
+Do not clear browser storage. Your stored readings remain under the same key. This patch does not replace vendor files or change OCR. Badge reflects app.js release; upload all three files together to avoid mixed versions.

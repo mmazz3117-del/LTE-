@@ -1,4 +1,8 @@
 'use strict';
+// User-visible release. Bump for each shipped application update.
+const APP_VERSION='1.0.1';
+const versionBadge=document.getElementById('appVersion');
+if(versionBadge){versionBadge.textContent='v'+APP_VERSION;versionBadge.setAttribute('aria-label','App version '+APP_VERSION);}
 const $=id=>document.getElementById(id), fields=['lat','lon','captured','accuracy','network','band','rsrp','rsrq','snr','down','up','idle','loaded','loadedDown','loadedUp','jitter','testConnection','notes'];
 const NUM=['lat','lon','accuracy','rsrp','rsrq','snr','down','up','idle','loaded','loadedDown','loadedUp','jitter'];
 let recoveryBlocked=false;

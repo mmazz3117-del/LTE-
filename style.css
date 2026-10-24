@@ -5,3 +5,6 @@
 
 .finalcheck{margin-top:16px;background:#e9f1e2;padding:14px;border:1px solid #b6cba9;border-radius:8px;line-height:1.5}.finalcheck input{flex-shrink:0;width:22px;height:22px}.reviewerror{background:#fff0dc;border-left:3px solid #bd6c37;padding:10px;color:#7c3e20;font-size:13px}.pendingreview{padding:14px;background:#fff4d9;border-radius:9px;margin:12px 0}.pendingreview p{margin:0 0 8px;color:#79561d;font-size:12px}.pendingreview button{width:100%}#ocrReview{scroll-margin-top:100px}#speedConfirm{padding-top:12px}.screenshotimport #applyOcr{margin-top:12px}#reviewHeading:focus{outline:none}
 [hidden]{display:none!important}
+
+/* Visible release badge: keep it beside the name on narrow screens. */
+.brand{flex-wrap:wrap}.versionbadge{display:inline-block;font-size:11px;line-height:1.4;letter-spacing:.02em;font-weight:600;padding:2px 6px;border:1px solid currentColor;border-radius:6px;white-space:nowrap;vertical-align:middle}header{gap:10px;flex-wrap:wrap}
